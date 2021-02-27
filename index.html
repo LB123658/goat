@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Goat Simulator</title>
+   <meta name="Description" content="Experience the true power of being a goat." />
+<link rel='icon' href='https://drive.google.com/thumbnail?id=14fjWZMk4PP7TsBcIogQSFXGZBB70FTgt' type='image/png'/ >
+
+<style>
+#myVideo {
+position: absolute;
+top: 100px;
+left: 50px;
+width: 600px;
+}
+#play {
+position: absolute;
+top: 450px;
+left: 50px;
+width: 150px;
+height: 50px;
+font-size: 30px;
+cursor: pointer;
+border: none;
+background: transparent;
+border-radius: 15px;
+}
+#play:hover {
+background: lightgrey;
+}
+#title {
+font-family: arial;
+font-size: 40px;
+color: grey;
+cursor: default;
+font-weight: bold;
+position: absolute;
+top: 5px;
+left: 5px;
+}
+#howTo {
+font-family: arial;
+font-size: 30px;
+color: grey;
+cursor: default;
+font-weight: bold;
+position: absolute;
+left: 670px;
+top: 100px;
+}
+#goat {
+position: absolute;
+top: 218px;
+left: 200px;
+width: 200px;
+z-index: 1;
+}
+#jump {
+position: absolute;
+top: 450px;
+left: 500px;
+width: 150px;
+height: 50px;
+font-size: 30px;
+cursor: pointer;
+border: none;
+background: transparent;
+border-radius: 15px;
+}
+#jump:hover {
+background: lightgrey;
+}
+#data {
+position: absolute;
+top: 120px;
+left: 500px;
+color: black;
+font-family: courier new;
+cursor: default;
+z-index: 1;
+font-size: 20px;
+}
+#setTwo {
+visibility: hidden;
+}
+#loadingPhrase {
+font-family: futura;
+color: grey;
+font-size: 50px;
+cursor: default;
+}
+#loadGoat {
+width: 300px;
+}
+.loadPart {
+width: 20%;
+height: 40px;
+border: none;
+background: lightgrey;
+}
+#a {
+position: absolute;
+top: 500px;
+left: 0px;
+}
+#b {
+position: absolute;
+top: 500px;
+left: 20%;
+}
+#c {
+position: absolute;
+top: 500px;
+left: 40%;
+}
+#d {
+position: absolute;
+top: 500px;
+left: 60%;
+}
+#loadPercent {
+font-family: futura;
+color: grey;
+font-size: 30px;
+cursor: default;
+position: absolute;
+left: 400px;
+top: 300px;
+}
+</style>
+</head>
+<body onload="setTimeout(loadA, 1000); setTimeout(loadB, 1500); setTimeout(loadC, 2000); setTimeout(loadD, 2500); setTimeout(finalLoad, 3600)">
+<div id="setOne">
+<p id="loadingPhrase">Ultimate Goat Simulator</p>
+<img id="loadGoat" src="https://drive.google.com/thumbnail?id=14fjWZMk4PP7TsBcIogQSFXGZBB70FTgt" alt="Sorry the goat is not available right now." title="Hello, my name is Bob.">
+<button class="loadPart" id="a"></button>
+<button class="loadPart" id="b"></button>
+<button class="loadPart" id="c"></button>
+<button class="loadPart" id="d"></button>
+<p id="loadPercent">Loading...</p>
+</div>
+
+
+
+
+<div id="setTwo">
+<p id="title">Ultimate Goat Simulator</p>
+<p id="howTo">How to play: control the goat and jump over the tree stumps and logs.</p>
+<video  muted id="myVideo" loop>
+  <source src="https://drive.google.com/uc?authuser=0&id=1B7TkaRDhkNgxIOhg0BNaLo4G9Yzqwsq2&export=download" type="video/mp4">
+  It looks like this game is unavailable.
+</video>
+<button id="play" onclick="myFunction()">Play</button>
+<img id="goat" src="https://drive.google.com/thumbnail?id=14fjWZMk4PP7TsBcIogQSFXGZBB70FTgt" alt="Sorry the goat is not available right now.">
+<button id="jump" onclick="jump(); setTimeout(gravity, 800); highScore()">Jump</button>
+</div>
+
+<script>
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("play");
+
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Pause";
+  } else {
+    video.pause();
+    btn.innerHTML = "Play";
+  }
+}
+function jump() {
+document.getElementById("goat").style.top = "180px";
+}
+function gravity() {
+document.getElementById("goat").style.top = "218px";
+}
+function loadA() {
+document.getElementById("a").style.background = "#63bd04";
+document.getElementById("loadPercent").innerHTML = "Loading 25%";
+}
+function loadB() {
+document.getElementById("b").style.background = "#63bd04";
+document.getElementById("loadPercent").innerHTML = "Loading 50%";
+}
+function loadC() {
+document.getElementById("c").style.background = "#63bd04";
+document.getElementById("loadPercent").innerHTML = "Loading 75%";
+}
+function loadD() {
+document.getElementById("d").style.background = "#63bd04";
+document.getElementById("loadPercent").innerHTML = "Loading 100%";
+}
+function finalLoad() {
+document.getElementById("setOne").style.visibility = "hidden";
+document.getElementById("setTwo").style.visibility = "visible";
+}
+</script>
+</body>
+</html>
