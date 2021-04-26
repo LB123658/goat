@@ -90,7 +90,7 @@ font-family: arial;
 </style>
 </head>
 <div id="main">
-<body onload="setTimeout(speed, 30000); setTimeout(loading, 3000)">
+<body onload="setTimeout(speed, 20000); setTimeout(loading, 3000); setTimeout(double, 40000);">
 <video muted id="myVideo" loop>
   <source src="https://drive.google.com/uc?authuser=0&id=1B7TkaRDhkNgxIOhg0BNaLo4G9Yzqwsq2&export=download" type="video/mp4">
   Your goat has gone missing.
@@ -144,6 +144,9 @@ function loading() {
 document.getElementById("ldiv").style.visibility = "hidden";
 document.getElementById("main").style.visibility = "visible";
 }
+function double() {
+document.getElementById("myVideo").playbackrate = 1.5;
+} 
 </script>
 </body>
 </html>
