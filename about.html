@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="Description" content="Experience the true power of being a goat." />
+<link rel='icon' href='https://drive.google.com/thumbnail?id=14fjWZMk4PP7TsBcIogQSFXGZBB70FTgt' type='image/png'/ > 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<title>The Ultimate Goat Simulator</title>
+<style>
+* {
+font-family: 'Zen Dots', cursive;
+color: #282828;
+}
+body {
+background: #64d12e;
+}
+#logo {
+width: 30%;
+}
+#logo:hover {
+animation-name: jump;
+animation-duration: 2.0s;
+animation-iteration-count: 1;
+}
+@keyframes jump {
+0% {transform: translate(0px, 0px);}
+50% {transform: translate(0px, -100px);}
+100% {transform: translate(0px, 0px);}
+}
+#center {
+position: absolute;
+top: 30px;
+left: 10%;
+width: 80%;
+text-align: center;
+font-size: 5vw;
+}
+.button {
+height: 40px;
+font-size: 25px;
+background: transparent;
+border: 2px solid black;
+border-radius: 8px;
+}
+.button:hover {
+border: 2px solid white;
+color: white;
+cursor: pointer;
+background: #82e352;
+animation-name: fade;
+animation-duration: 0.6s;
+animation-iteration-count: 1;
+}
+@keyframes fade {
+ 
+  0% {border: 2px solid black; color: black; background: transparent;}
+  100%   {border: 2px solid white; color: white; background: #82e352;}
+
+}
+#language {
+position: absolute;
+top: 10px;
+right: 10px;
+width: 40px;
+background: transparent;
+border: 2px solid black;
+border-radius: 8px;
+padding: 5px;
+cursor: pointer;
+}
+#langauge:hover {
+opacity: 0.7;
+}
+#settings {
+position: absolute;
+z-index: 1;
+top: 52px;
+right: 10px;
+width: 150px;
+height: 105px;
+border-radius: 8px;
+border: none;
+background: white;
+visibility: hidden;
+}
+.s {
+width: 100%;
+height: 35px;
+background: transparent;
+color: black;
+border: none;
+font-size: 17px;
+}
+.s:hover {
+bakcground: lightgrey;
+color: grey;
+cursor: pointer;
+}
+</style>
+<body>
+<p id="center">
+<img src="https://drive.google.com/thumbnail?id=14fjWZMk4PP7TsBcIogQSFXGZBB70FTgt" id="logo"><br>
+Ultimate Goat Simulator<br><br>
+<a href="https://lb123658.github.io/goat">
+<button class="button" id="old" title="Play the original goat simulator">Original</button></a>
+<a href="https://lb123658.github.io/goat/app">
+<button class="button" id="new" title="Play the new goat simulator">New version</button></a>
+</p>
+<button id="language" onmouseover="show()" onmouseout="hide()"><span class="material-icons">translate</span></button>
+
+<div id="settings">
+<button class="s">English</button>
+<button class="s">Español</button>
+<button class="s">Polski</button>
+</div>
+
+</body>
+</html>
