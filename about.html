@@ -35,7 +35,7 @@ top: 30px;
 left: 10%;
 width: 80%;
 text-align: center;
-font-size: 5vw;
+font-size: 4vw;
 }
 .button {
 height: 40px;
@@ -102,7 +102,7 @@ cursor: pointer;
 <body>
 <p id="center">
 <img src="https://drive.google.com/thumbnail?id=14fjWZMk4PP7TsBcIogQSFXGZBB70FTgt" id="logo"><br>
-Ultimate Goat Simulator<br><br>
+<span id="title">Ultimate Goat Simulator</span><br><br>
 <a href="https://lb123658.github.io/goat">
 <button class="button" id="old" title="Play the original goat simulator">Original</button></a>
 <a href="https://lb123658.github.io/goat/app">
@@ -110,11 +110,34 @@ Ultimate Goat Simulator<br><br>
 </p>
 <button id="language" onmouseover="show()" onmouseout="hide()"><span class="material-icons">translate</span></button>
 
-<div id="settings">
-<button class="s">English</button>
-<button class="s">Español</button>
-<button class="s">Polski</button>
+<div id="settings" onmouseover="show()" onmouseout="hide()">
+<button class="s" onclick="location.reload();">English</button>
+<button class="s" onclick="es()">Español</button>
+<button class="s" onclick="pl()">Polski</button>
 </div>
+
+
+<script>
+function show() {
+document.getElementById("settings").style.visibility = "visible";
+}
+function hide() {
+document.getElementById("settings").style.visibility = "hidden";
+}
+function es() {
+document.getElementById("title").innerHTML = "Ultimo Simulador de Cabro";
+document.getElementById("old").title = "Jugar la versión original";
+document.getElementById("new").innerHTML = "Nueva versión";
+}
+function pl() {
+document.getElementById("title").innerHTML = "Ultimate Goat Simulator";
+document.getElementById("old").title = "";
+document.getElementById("new").title = "";
+document.getElementById("old").innerHTML = "Stara wersja";
+document.getElementById("new").innerHTML = "Nowa wersja";
+}
+</script>
+
 
 </body>
 </html>
