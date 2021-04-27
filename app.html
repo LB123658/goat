@@ -123,23 +123,6 @@ width: 95%;
 height: 40px;
 background: transparent;
 }
-#alert {
-position: absolute;
-top: 40%;
-height: 10%;
-font-size: 25px;
-width: 30%;
-left: 35%;
-border: 2px solid white;
-color: black;
-background: lightgrey;
-border-radius: 8px;
-}
-#alert:hover {
-border: 2px solid grey;
-background: grey;
-cursor: pointer;
-}
 </style>
 </head>
 <div id="main">
@@ -161,7 +144,6 @@ cursor: pointer;
 <button id="loader"></button>
 <p id="percent">Finding your goat...</p>
 </div>
-<button id="alert" onclick="location.reload()" title="The game didn't load properly">Reload game</button>
 
 <script>
 var video = document.getElementById("myVideo");
