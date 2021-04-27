@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="Description" content="Experimenta el poder de ser una cabra." />
+<link rel='icon' href='https://drive.google.com/thumbnail?id=14fjWZMk4PP7TsBcIogQSFXGZBB70FTgt' type='image/png'/ > 
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+<title>Simulador de Cabro 2D</title>
+<style>
+body {
+overflow: hidden;
+}
+#myVideo {
+position: absolute;
+top: 0px;
+left: 0px;
+height: 100%;
+pointer-events: none;
+}
+#div {
+text-align: center;
+}
+#goat {
+position: absolute;
+bottom: 5%;
+left: 7%;
+}
+#goat:hover {
+cursor: n-resize;
+animation-name: flip;
+animation-duration: 1.5s;
+animation-iteration-count: 1;
+}
+@keyframes flip {
+  0% {transform: rotate(0deg) translate(0px, 0px);}
+  50% {transform: rotate(0deg) translate(0px, -150px);}
+  75% {transform: rotate(359deg) translate(0px, -112px);}
+  100% {transform: rotate(360deg) translate(0px, 0px);}
+}
+#jump {
+position: absolute;
+top: 0px;
+right: 0px;
+width: 50%;
+height: 60px;
+background: lightgrey;
+color: black;
+border: none;
+opacity: 0.5;
+font-size: 30px;
+}
+#play {
+position: absolute;
+top: 0px;
+left: 0px;
+width: 50%;
+height: 60px;
+background: lightgrey;
+color: black;
+border: none;
+opacity: 0.5;
+font-size: 30px;
+}
+#main {
+visibility: hidden;
+}
+#lgoat {
+position: absolute;
+top: 100px;
+font-size: 5vw;
+font-weight: bold;
+font-family: verdana;
+left: 0px;
+width: 100%;
+text-align: center;
+}
+#loader {
+position: absolute;
+top: 50%;
+left: 2.5%;
+width: 95%;
+border: none;
+height: 40px;
+background: #63bd04;
+border-radius: 25px;
+animation-name: goat;
+animation-duration: 2.7s;
+animation-iteration-count: 1;
+}
+@keyframes goat {
+ 
+  0% {width: 0%;}
+  75% {width: 74%;}
+  80% {width: 75%;}
+  100%   {width: 95%;}
+
+}
+#percent {
+position: absolute;
+bottom: 50px;
+left: 0px;
+width: 100%;
+text-align: center;
+font-size: 25px;
+color: grey;
+pointer-events: none;
+font-family: arial;
+}
+#ldiv {
+position: absolute;
+top: 0px;
+width: 100%;
+left: 0px;
+height: 100%;
+background: lightgrey;
+}
+#border {
+position: absolute;
+border-radius: 20px;
+border: 10px solid silver;
+z-index: 1;
+top: 50%;
+left: 2.5%;
+width: 95%;
+height: 40px;
+background: transparent;
+}
+#announcement {
+position: absolute;
+top: 70px;
+left: 150px;
+width: 300px;
+height: 180px;
+background: #ffc000;
+border: none;
+z-index: 1;
+font-family: arial;
+color: black;
+font-size: 20px;
+visibility: hidden;
+border-radius: 3px;
+visibility: hidden;
+}
+#announce-p {
+position: absolute;
+top: 5px;
+left: 2%;
+width: 96%;
+text-align: left;
+pointer-events: none;
+}
+#announce-b {
+position: absolute;
+bottom: 10px;
+right: 10px;
+height: 40px;
+border: none;
+background: #ffc000;
+width: 90px;
+font-size: 18px;
+}
+#announce-b:hover {
+background: #ffcc33;
+cursor: pointer;
+}
+#announce-ba {
+position: absolute;
+bottom: 10px;
+right: 110px;
+height: 40px;
+border: none;
+background: #ffc000;
+width: 140px;
+font-size: 18px;
+}
+#announce-ba:hover {
+background: #ffcc33;
+cursor: pointer;
+}
+#announcementTwo {
+position: absolute;
+top: 70px;
+right: 150px;
+width: 300px;
+height: 180px;
+background: #ffc000;
+border: none;
+z-index: 1;
+font-family: arial;
+color: black;
+font-size: 20px;
+visibility: hidden;
+border-radius: 3px;
+}
+#announce-pTwo {
+position: absolute;
+top: 5px;
+left: 2%;
+width: 96%;
+text-align: left;
+pointer-events: none;
+}
+#announce-bTwo {
+position: absolute;
+bottom: 10px;
+right: 10px;
+height: 40px;
+border: none;
+background: #ffc000;
+width: 90px;
+font-size: 18px;
+}
+#announce-bTwo:hover {
+background: #ffcc33;
+cursor: pointer;
+}
+
+#announcementThree {
+position: absolute;
+bottom: 70px;
+right: 150px;
+width: 300px;
+height: 180px;
+background: #ffc000;
+border: none;
+z-index: 1;
+font-family: arial;
+color: black;
+font-size: 20px;
+visibility: hidden;
+border-radius: 3px;
+}
+#announce-pThree {
+position: absolute;
+top: 5px;
+left: 2%;
+width: 96%;
+text-align: left;
+pointer-events: none;
+}
+#announce-bThree {
+position: absolute;
+bottom: 10px;
+right: 10px;
+height: 40px;
+border: none;
+background: #ffc000;
+width: 90px;
+font-size: 18px;
+}
+#announce-bThree:hover {
+background: #ffcc33;
+cursor: pointer;
+}
+#tutorial {
+position: absolute;
+top: 10px;
+left: 0px;
+height: 40px;
+width: 40px;
+border: none;
+background: #ffc000;
+color: black;
+cursor: pointer;
+border-radius: 0px 20px 20px 0px;
+visibility: hidden;
+}
+#tutorial:hover {
+background: #ffcc33;
+}
+</style>
+</head>
+<div id="main">
+<body onload="setTimeout(speed, 20000); setTimeout(loading, 3000); setTimeout(double, 40000); setTimeout(night, 60000); setTimeout(day, 80000); setTimeout(per, 1300);">
+<video muted id="myVideo" loop preload>
+  <source src="video.mp4" type="video/mp4">
+  Gdzie jest twoja koza?
+</video>
+
+
+<img id="goat" src="https://drive.google.com/thumbnail?id=14fjWZMk4PP7TsBcIogQSFXGZBB70FTgt" alt="Sorry the goat is not available right now.">
+<button id="jump" onclick="jump(); setTimeout(gravity, 800);" onmousedown="jclick()" onmouseup="jhover()">Skoczyć</button>
+<button id="play" onclick="myFunction();" onmousedown="pclick()" onmouseup="phover()">Biegać</button>
+<button id="tutorial" onclick="start()" title="Tutorial del juego"><span class="material-icons">help_outline</span></button>
+</div>
+
+<div id="ldiv">
+<p id="lgoat">Gra kozy 2D</p>
+<button id="border"></button>
+<button id="loader"></button>
+<p id="percent">Ładowanie grę...</p>
+</div>
+
+<div id="announcement">
+<p id="announce-p">Haz clic en "Correr" para empezar el juego. El primer obstáculo llegará pronto.</p>
+<button id="announce-b" onclick="closeAnnouncenent(); two()">Entiendo</button>
+<button id="announce-ba" onclick="closeAnnouncenent()">Cerrar tutorial</button>
+</div>
+
+<div id="announcementTwo">
+<p id="announce-pTwo">Haz clic en "Saltar" o usa el botón de espacio para saltar.</p>
+<button id="announce-bTwo" onclick="closeTwo(); three()">Entiendo</button>
+</div>
+
+<div id="announcementThree">
+<p id="announce-pThree">Sobrevuela sobre el cabro para más efectos.</p>
+<button id="announce-bThree" onclick="closeThree()">Entiendo</button>
+</div>
+<script>
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("play");
+video.playbackRate = 0.5;
+
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Zatrzymać";
+  } else {
+    video.pause();
+    btn.innerHTML = "Biegać";
+  }
+}
+function jump() {
+document.getElementById("goat").style.bottom = "20%";
+}
+function gravity() {
+document.getElementById("goat").style.bottom = "5%";
+}
+function jclick() {
+document.getElementById("jump").style.color = "white";
+}
+function jhover() {
+document.getElementById("jump").style.color = "black";
+}
+function pclick() {
+document.getElementById("play").style.color = "white";
+}
+function phover() {
+document.getElementById("play").style.color = "black";
+}
+function speed() {
+document.getElementById("myVideo").playbackrate = 1.0;
+}
+function loading() {
+document.getElementById("ldiv").style.visibility = "hidden";
+document.getElementById("main").style.visibility = "visible";
+}
+function double() {
+document.getElementById("myVideo").playbackrate = 1.5;
+} 
+function night() {
+document.getElementById("myVideo").style.filter = "greyscale(100%)";
+}
+function day() {
+document.getElementById("myVideo").style.filter = "greyscale(0%)";
+} 
+document.body.onkeyup = function(e){  
+    if(e.keyCode == 32){
+        jump(); setTimeout(gravity, 800);
+    }
+}
+function per() {
+document.getElementById("percent").innerHTML = "Ładowanie twoją kozę...";
+}
+function closeAnnouncenent() {
+document.getElementById("announcement").style.visibility = "hidden";
+}
+function two() {
+document.getElementById("announcementTwo").style.visibility = "visible";
+}
+function closeTwo() {
+document.getElementById("announcementTwo").style.visibility = "hidden";
+}
+function three() {
+document.getElementById("announcementThree").style.visibility = "visible";
+}
+function closeThree() {
+document.getElementById("announcementThree").style.visibility = "hidden";
+}
+function start() {
+document.getElementById("announcement").style.visibility = "visible";
+}
+</script>
+</body>
+</html>
