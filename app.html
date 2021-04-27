@@ -3,6 +3,7 @@
 <head>
 <meta name="Description" content="Experience the true power of being a goat." />
 <link rel='icon' href='https://drive.google.com/thumbnail?id=14fjWZMk4PP7TsBcIogQSFXGZBB70FTgt' type='image/png'/ > 
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
 <title>Goat Simulator 2D</title>
 <style>
 body {
@@ -123,6 +124,147 @@ width: 95%;
 height: 40px;
 background: transparent;
 }
+#announcement {
+position: absolute;
+top: 70px;
+left: 150px;
+width: 300px;
+height: 180px;
+background: #ffc000;
+border: none;
+z-index: 1;
+font-family: arial;
+color: black;
+font-size: 20px;
+visibility: hidden;
+border-radius: 3px;
+}
+#announce-p {
+position: absolute;
+top: 5px;
+left: 2%;
+width: 96%;
+text-align: left;
+pointer-events: none;
+}
+#announce-b {
+position: absolute;
+bottom: 10px;
+right: 10px;
+height: 40px;
+border: none;
+background: #ffc000;
+width: 60px;
+font-size: 18px;
+}
+#announce-b:hover {
+background: #ffcc33;
+cursor: pointer;
+}
+#announce-ba {
+position: absolute;
+bottom: 10px;
+right: 80px;
+height: 40px;
+border: none;
+background: #ffc000;
+width: 120px;
+font-size: 18px;
+}
+#announce-ba:hover {
+background: #ffcc33;
+cursor: pointer;
+}
+#announcementTwo {
+position: absolute;
+top: 70px;
+right: 150px;
+width: 300px;
+height: 180px;
+background: #ffc000;
+border: none;
+z-index: 1;
+font-family: arial;
+color: black;
+font-size: 20px;
+visibility: hidden;
+border-radius: 3px;
+}
+#announce-pTwo {
+position: absolute;
+top: 5px;
+left: 2%;
+width: 96%;
+text-align: left;
+pointer-events: none;
+}
+#announce-bTwo {
+position: absolute;
+bottom: 10px;
+right: 10px;
+height: 40px;
+border: none;
+background: #ffc000;
+width: 60px;
+font-size: 18px;
+}
+#announce-bTwo:hover {
+background: #ffcc33;
+cursor: pointer;
+}
+
+#announcementThree {
+position: absolute;
+bottom: 70px;
+right: 150px;
+width: 300px;
+height: 180px;
+background: #ffc000;
+border: none;
+z-index: 1;
+font-family: arial;
+color: black;
+font-size: 20px;
+visibility: hidden;
+border-radius: 3px;
+}
+#announce-pThree {
+position: absolute;
+top: 5px;
+left: 2%;
+width: 96%;
+text-align: left;
+pointer-events: none;
+}
+#announce-bThree {
+position: absolute;
+bottom: 10px;
+right: 10px;
+height: 40px;
+border: none;
+background: #ffc000;
+width: 60px;
+font-size: 18px;
+}
+#announce-bThree:hover {
+background: #ffcc33;
+cursor: pointer;
+}
+#tutorial {
+position: absolute;
+top: 10px;
+left: 0px;
+height: 40px;
+width: 40px;
+border: none;
+background: #ffc000;
+color: black;
+cursor: pointer;
+border-radius: 0px 20px 20px 0px;
+}
+#tutorial:hover {
+background: #ffcc33;
+}
 </style>
 </head>
 <div id="main">
@@ -136,6 +278,7 @@ background: transparent;
 <img id="goat" src="https://drive.google.com/thumbnail?id=14fjWZMk4PP7TsBcIogQSFXGZBB70FTgt" alt="Sorry the goat is not available right now.">
 <button id="jump" onclick="jump(); setTimeout(gravity, 800);" onmousedown="jclick()" onmouseup="jhover()">Jump</button>
 <button id="play" onclick="myFunction();" onmousedown="pclick()" onmouseup="phover()">Run</button>
+<button id="tutorial" onclick="start()" title="Play tutorial"><span class="material-icons">help_outline</span></button>
 </div>
 
 <div id="ldiv">
@@ -145,6 +288,21 @@ background: transparent;
 <p id="percent">Finding your goat...</p>
 </div>
 
+<div id="announcement">
+<p id="announce-p">Click "Run" to start the game. The first goat obstacle will come in a few seconds.</p>
+<button id="announce-b" onclick="closeAnnouncenent(); two()">Got it</button>
+<button id="announce-ba" onclick="closeAnnouncenent()">Skip tutorial</button>
+</div>
+
+<div id="announcementTwo">
+<p id="announce-pTwo">Click the "Jump" button or the spacebar to make the goat jump.</p>
+<button id="announce-bTwo" onclick="closeTwo(); three()">Got it</button>
+</div>
+
+<div id="announcementThree">
+<p id="announce-pThree">Hover over the goat to make it jump and do a flip.</p>
+<button id="announce-bThree" onclick="closeThree()">Got it</button>
+</div>
 <script>
 var video = document.getElementById("myVideo");
 var btn = document.getElementById("play");
@@ -183,6 +341,7 @@ document.getElementById("myVideo").playbackrate = 1.0;
 function loading() {
 document.getElementById("ldiv").style.visibility = "hidden";
 document.getElementById("main").style.visibility = "visible";
+document.getElementById("announcement").style.visibility = "visible";
 }
 function double() {
 document.getElementById("myVideo").playbackrate = 1.5;
@@ -200,6 +359,24 @@ document.body.onkeyup = function(e){
 }
 function per() {
 document.getElementById("percent").innerHTML = "Training your goat...";
+}
+function closeAnnouncenent() {
+document.getElementById("announcement").style.visibility = "hidden";
+}
+function two() {
+document.getElementById("announcementTwo").style.visibility = "visible";
+}
+function closeTwo() {
+document.getElementById("announcementTwo").style.visibility = "hidden";
+}
+function three() {
+document.getElementById("announcementThree").style.visibility = "visible";
+}
+function closeThree() {
+document.getElementById("announcementThree").style.visibility = "hidden";
+}
+function start() {
+document.getElementById("announcement").style.visibility = "visible";
 }
 </script>
 </body>
