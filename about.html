@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-<title>The Ultimate Goat Simulator</title>
+<title id="t">The Ultimate Goat Simulator</title>
 <style>
 * {
 font-family: 'Zen Dots', cursive;
@@ -103,9 +103,9 @@ cursor: pointer;
 <p id="center">
 <img src="https://drive.google.com/thumbnail?id=14fjWZMk4PP7TsBcIogQSFXGZBB70FTgt" id="logo"><br>
 <span id="title">Ultimate Goat Simulator</span><br><br>
-<a href="https://lb123658.github.io/goat">
+<a href="https://lb123658.github.io/goat" id="a-old">
 <button class="button" id="old" title="Play the original goat simulator">Original</button></a>
-<a href="https://lb123658.github.io/goat/app">
+<a href="https://lb123658.github.io/goat/app" id="a-new">
 <button class="button" id="new" title="Play the new goat simulator">New version</button></a>
 </p>
 <button id="language" onmouseover="show()" onmouseout="hide()"><span class="material-icons">translate</span></button>
@@ -128,13 +128,18 @@ function es() {
 document.getElementById("title").innerHTML = "Ultimo Simulador de Cabro";
 document.getElementById("old").title = "Jugar la versión original";
 document.getElementById("new").innerHTML = "Nueva versión";
+document.getElementById("a-new").href = "app?l=es";
+document.getElementById("new").title = "Jugar la versíon nueva";
+document.getElementById("t").innerHTML = "Simulador de Cabro";
 }
 function pl() {
-document.getElementById("title").innerHTML = "Ultimate Goat Simulator";
-document.getElementById("old").title = "";
-document.getElementById("new").title = "";
+document.getElementById("title").innerHTML = "Gra kozy";
+document.getElementById("old").title = "Graj stara wersja";
+document.getElementById("new").title = "Graj nowa wesja";
 document.getElementById("old").innerHTML = "Stara wersja";
 document.getElementById("new").innerHTML = "Nowa wersja";
+document.getElementById("a-new").href = "app?l=pl";
+document.getElementById("t").innerHTML = "Gra kozy";
 }
 </script>
 
