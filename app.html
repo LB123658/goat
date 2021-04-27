@@ -149,7 +149,6 @@ cursor: pointer;
   Your goat has gone missing.
 </video>
 
-<button id="alert" onclick="location.reload()" title="The game didn't load properly">Reload game</button>
 
 <img id="goat" src="https://drive.google.com/thumbnail?id=14fjWZMk4PP7TsBcIogQSFXGZBB70FTgt" alt="Sorry the goat is not available right now.">
 <button id="jump" onclick="jump(); setTimeout(gravity, 800);" onmousedown="jclick()" onmouseup="jhover()">Jump</button>
@@ -162,6 +161,8 @@ cursor: pointer;
 <button id="loader"></button>
 <p id="percent">Finding your goat...</p>
 </div>
+<button id="alert" onclick="location.reload()" title="The game didn't load properly">Reload game</button>
+
 <script>
 var video = document.getElementById("myVideo");
 var btn = document.getElementById("play");
