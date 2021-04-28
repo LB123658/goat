@@ -166,7 +166,14 @@ window.location.search = "?l=en";
           document.getElementById("t").innerHTML = "Gra kozy";
       } else if (window.location.search == "") {
           ;
-      }
+      } else if (window.location.search == "?l=ru") {
+          document.getElementById("title").innerHTML = "Игра козела";
+          document.getElementById("old").title = "Старая версия";
+          document.getElementById("new").title = "Новая версия";
+          document.getElementById("old").innerHTML = "Старая версия";
+          document.getElementById("new").innerHTML = "Новая версия";
+          document.getElementById("a-new").href = "https://lb123658.github.io/goat/app?l=ru";
+          document.getElementById("t").innerHTML = "Игра козела";
 </script>
 </body>
 </html>
