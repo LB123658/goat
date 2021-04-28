@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id="html">
 <head>
 <meta name="Description" content="Experience the true power of being a goat." />
 <link rel='icon' href='https://drive.google.com/thumbnail?id=14fjWZMk4PP7TsBcIogQSFXGZBB70FTgt' type='image/png'/ > 
@@ -377,6 +377,9 @@ document.getElementById("announcementThree").style.visibility = "hidden";
 }
 function start() {
 document.getElementById("announcement").style.visibility = "visible";
+}
+if (window.location.search == "?l=ru") {
+  document.getElementById("html").innerHTML = "Russian version is not available yet<br><a href="about?l=ru">Learn more</a>";
 }
 </script>
 <script src="redirect.js"></script>
