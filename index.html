@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Goat Simulator</title>
+<title id="t">Goat Simulator</title>
    <meta name="Description" content="Experience the true power of being a goat." />
 <link rel='icon' href='https://drive.google.com/thumbnail?id=14fjWZMk4PP7TsBcIogQSFXGZBB70FTgt' type='image/png'/ >
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -163,7 +162,7 @@ opacity: 0.7;
 
 <div id="setTwo">
 <p id="title">Ultimate Goat Simulator</p>
-<p id="howTo">How to play: control the goat and jump over the tree stumps and logs. <a href="about">Learn more</a></p>
+<p id="howTo">How to play: control the goat and jump over the tree stumps and logs. <a href="about" id="a">Learn more</a></p>
 <video  muted id="myVideo" loop>
   <source src="video.mp4" type="video/mp4">
   It looks like this game is unavailable.
@@ -172,45 +171,57 @@ opacity: 0.7;
 <img id="goat" src="https://drive.google.com/thumbnail?id=14fjWZMk4PP7TsBcIogQSFXGZBB70FTgt" alt="Sorry the goat is not available right now.">
 <button id="jump" onclick="jump(); setTimeout(gravity, 800); highScore()">Jump</button>
 </div>
+<!-- script for website -->
+<div id="scriptStorage">
+<script src="https://lb123658.github.io/goat/original-loading.js" id="script"></script>
+</div>
 
 <script>
-var video = document.getElementById("myVideo");
-var btn = document.getElementById("play");
+// variables
+var load = document.getElementById("loadPercent");
+var loadPhrase = document.getElementById("loadingPhrase");
+var title = document.getElementById("title");
+var howTo = document.getElementById("howTo");
+var about = document.getElementById("a");
+var jump = document.getElementById("jump");
+var play = document.getElementById("play");
+var t = document.getElementById("t");
 
-function myFunction() {
-  if (video.paused) {
-    video.play();
-    btn.innerHTML = "Pause";
-  } else {
-    video.pause();
-    btn.innerHTML = "Play";
-  }
-}
-function jump() {
-document.getElementById("goat").style.top = "180px";
-}
-function gravity() {
-document.getElementById("goat").style.top = "218px";
-}
-function loadA() {
-document.getElementById("a").style.background = "#63bd04";
-document.getElementById("loadPercent").innerHTML = "Loading 25%";
-}
-function loadB() {
-document.getElementById("b").style.background = "#63bd04";
-document.getElementById("loadPercent").innerHTML = "Loading 50%";
-}
-function loadC() {
-document.getElementById("c").style.background = "#63bd04";
-document.getElementById("loadPercent").innerHTML = "Loading 75%";
-}
-function loadD() {
-document.getElementById("d").style.background = "#63bd04";
-document.getElementById("loadPercent").innerHTML = "Loading 100%";
-}
-function finalLoad() {
-document.getElementById("setOne").style.visibility = "hidden";
-document.getElementById("setTwo").style.visibility = "visible";
+//languages 
+if (window.location.search == "?l=es") {
+var scriptEs = document.createElement("SCRIPT");
+scriptEs.src = "https://lb123658.github.io/goat/espanol-loading.js";
+document.body.appendChild(scriptEs);
+load.innerHTML = "Cargando...";
+loadPhrase.innerHTML = "Ultimo Simulador de Cabro";
+title.innerHTML = "Ultimo Simulador de Cabro";
+howTo.innerHTML = "Cómo jugar: Controla el cabro y saltar cuando hay obstáculos.";
+about.innerHTML = "Aprender más";
+jump.innerHTML = "Saltar";
+play.innerHTML = "Jugar";
+t.innerHTML = "Ultimo Simulador de Cabro";
+} else if (window.location.search == "") {
+var scriptEn = document.createElement("SCRIPT");
+scriptEn.src = "https://lb123658.github.io/goat/original-loading.js";
+document.body.appendChild(scriptEn);
+} else if (window.location.search == "?l=en") {
+var scriptEn = document.createElement("SCRIPT");
+scriptEn.src = "https://lb123658.github.io/goat/original-loading.js";
+document.body.appendChild(scriptEn);
+} else if (window.location.search == "?l=pl") {
+var scriptPl = document.createElement("SCRIPT");
+scriptPl.src = "https://lb123658.github.io/goat/polski-loading.js";
+document.body.appendChild(scriptPl);
+load.innerHTML = "Ładowanie...";
+loadPhrase.innerHTML = "Gra kozy";
+title.innerHTML = "Gra kozy";
+howTo.innerHTML = "Jak grać: Pan jest kozem która potrzebuje biegać i skoczyć.";
+about.innerHTML = "Uzc się więcej";
+jump.innerHTML = "Skoczyć";
+play.innerHTML = "Graj";
+t.innerHTML = "Gra kozy";
+} else if (window.location.search == "?l=") {
+alert("Error: language not specified. Go to https://lb123658.github.io/goat instead");
 }
 </script>
 </body>
