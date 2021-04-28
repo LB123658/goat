@@ -145,10 +145,11 @@ document.getElementById("t").innerHTML = "Gra kozy";
 <script>
       //language feature
       if (window.location.search == "?l=es") {
-            document.getElementById("body").onload = "pickColor(); es()";
+            setTimeout(es, 50);
       } else if (window.location.search == "?l=pl") {
-            document.getElementById("body").onload = "pickColor(); pl()"
-      } else document.getElementById("body").onload = "pickColor()";
+            setTimeout(pl, 50);
+      } else 
+            window.location.replace("https://lb123658.github.io/goat/about");
       }
 </body>
 </html>
