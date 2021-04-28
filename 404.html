@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-<title>Wrong goat</title>
+<title id="t">Wrong goat</title>
 <style>
 * {
 font-family: 'Zen Dots', cursive;
@@ -49,15 +48,14 @@ border-radius: 8px;
 border: 2px solid white;
 color: white;
 cursor: pointer;
-background: #82e352;
 animation-name: fade;
 animation-duration: 0.6s;
 animation-iteration-count: 1;
 }
 @keyframes fade {
  
-  0% {border: 2px solid black; color: black; background: transparent;}
-  100%   {border: 2px solid white; color: white; background: #82e352;}
+  0% {border: 2px solid black; color: black;}
+  100%   {border: 2px solid white; color: white;}
 
 }
 #language {
@@ -100,13 +98,13 @@ color: grey;
 cursor: pointer;
 }
 </style>
-<body>
+<body id="body" onload="pickColor()">
 <p id="center">
 <img src="https://drive.google.com/thumbnail?id=14fjWZMk4PP7TsBcIogQSFXGZBB70FTgt" id="logo"><br>
 <span id="title">Ultimate Goat Simulator</span><br><br>
-<a href="https://lb123658.github.io/goat">
+<a href="https://lb123658.github.io/goat" id="a-old">
 <button class="button" id="old" title="Play the original goat simulator">Original</button></a>
-<a href="https://lb123658.github.io/goat/app">
+<a href="https://lb123658.github.io/goat/app" id="a-new">
 <button class="button" id="new" title="Play the new goat simulator">New version</button></a>
 </p>
 <button id="language" onmouseover="show()" onmouseout="hide()"><span class="material-icons">translate</span></button>
@@ -129,16 +127,21 @@ function es() {
 document.getElementById("title").innerHTML = "Ultimo Simulador de Cabro";
 document.getElementById("old").title = "Jugar la versión original";
 document.getElementById("new").innerHTML = "Nueva versión";
+document.getElementById("a-new").href = "https://lb123658.github.io/goat/es";
+document.getElementById("new").title = "Jugar la versíon nueva";
+document.getElementById("t").innerHTML = "Simulador de Cabro";
 }
 function pl() {
-document.getElementById("title").innerHTML = "Ultimate Goat Simulator";
-document.getElementById("old").title = "";
-document.getElementById("new").title = "";
+document.getElementById("title").innerHTML = "Gra kozy";
+document.getElementById("old").title = "Graj stara wersja";
+document.getElementById("new").title = "Graj nowa wesja";
 document.getElementById("old").innerHTML = "Stara wersja";
 document.getElementById("new").innerHTML = "Nowa wersja";
+document.getElementById("a-new").href = "https://lb123658.github.io/goat/pl";
+document.getElementById("t").innerHTML = "Gra kozy";
 }
 </script>
-
+<script src="color.js"></script>
 
 </body>
 </html>
