@@ -11,4 +11,4 @@
 ### Gra z kozami
 <a href="https://lb123658.github.io/goat/about?l=pl" target="_blank">Graj</a><br>
 ---
-Добро пожаловать на игру з козами! 
+### Добро пожаловать на игру з козами! 
