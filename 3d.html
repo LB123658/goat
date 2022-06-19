@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Goat Simulator 3D</title>
+<link rel='icon' href='https://drive.google.com/thumbnail?id=14fjWZMk4PP7TsBcIogQSFXGZBB70FTgt' type='image/png'/ > 
+<style>
+div {
+  transition: left 2.5s, bottom 2.5s, width 3s, height 3s;
+}
+#sky {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: #87ceff;
+  background-image: linear-gradient(#4a708b, #6ca6cd);
+  height: 50%;
+  width: 100%;
+  z-index: 1;
+}
+#character {
+position: absolute;
+top: 50%;
+left: 50%;
+width: 200px;
+height: 530px;
+z-index: 3;
+margin-top: -265px;
+margin-left: -100px;
+transition: margin 0.3s;
+}
+#goat {
+z-index: 4;
+}
+#left-ear {
+position: absolute;
+top: 0px;
+left: 50px;
+width: 20px;
+height: 30px;
+background: #a8a879;
+}
+#right-ear {
+position: absolute;
+top: 0px;
+right: 50px;
+width: 20px;
+height: 30px;
+background: #a8a879;
+}
+#head {
+position: absolute;
+top: 30px;
+left: 50px;
+width: 100px;
+height: 100px;
+background: grey;
+}
+#body {
+position: absolute;
+top: 130px;
+left: 10px;
+width: 180px;
+height: 150px;
+background: #484848;
+}
+#tail {
+position: absolute;
+top: 150px;
+left: 80px;
+width: 40px;
+height: 50px;
+background: silver;
+}
+#left-leg {
+position: absolute;
+top: 280px;
+left: 40px;
+width: 30px;
+height: 120px;
+background: #585858;
+}
+#right-leg {
+position: absolute;
+top: 280px;
+right: 40px;
+width: 30px;
+height: 120px;
+background: #585858;
+}
+#board {
+position: absolute;
+top: 300px;
+border-bottom: 200px solid #282828;
+border-left: 100px solid transparent;
+border-right: 100px solid transparent;
+height: 0;
+width: 50px;
+border-radius: 100px;
+margin-left: -25px;
+}
+#left-wheel {
+position: absolute;
+bottom: 0px;
+left: 10px;
+width: 30px;
+height: 30px;
+background: #a8a879;
+}
+#right-wheel {
+position: absolute;
+bottom: 0px;
+right: 10px;
+width: 30px;
+height: 30px;
+background: #a8a879;
+}
+#axle {
+position: absolute;
+bottom: 12px;
+left: 40px;
+width: 120px;
+height: 5px;
+background: silver;
+}
+#plate {
+position: absolute;
+bottom: 17px;
+left: 80px;
+width: 40px;
+height: 13px;
+background: silver;
+}
+#goat {
+transition: transform 0.3s, opacity 1s;
+opacity: 0.5;
+}
+#loading {
+position: fixed;
+top: 0px;
+left: 0px;
+width: 100%;
+height: 100%;
+z-index: 5;
+background: white;
+font-family: arial;
+text-align: center;
+user-select: none;
+cursor: default;
+}
+#loading h2 {
+font-size: 60px;
+}
+</style>
+</head>
+<body>
+<div id="sky"></div>
+
+<!-- goat and skateboard -->
+<div id="character">
+
+<div id="board"></div>
+<div id="left-wheel"></div>
+<div id="right-wheel"></div>
+<div id="axle"></div>
+<div id="plate"></div>
+
+<div id="goat">
+  <div id="left-ear"></div>
+  <div id="right-ear"></div>
+  <div id="head"></div>
+  <div id="body"></div>
+  <div id="tail"></div>
+  <div id="left-leg"></div>
+  <div id="right-leg"></div>
+</div>
+
+</div>
+
+
+<!-- loading screen -->
+<div id="loading">
+<h2>Goat Simulator 3D</h2>
+<p id="tip">Turn on JavaScript to play this game</p>
+</div>
+<script>
+//animation in background
+document.body.style.overflow = "hidden";
+document.body.style.background = "green";
+
+setInterval(center,0);
+setInterval(left,0);
+setInterval(right,0);
+
+function center() {
+var y = Math.random() * 100;
+var x = Math.random() * 100;
+var a = document.createElement("div");
+a.style.width = "2px";
+a.style.height = "2px";
+a.style.background = "lightgreen";
+a.style.position = "absolute";
+a.style.left = "50%";
+a.style.bottom = "50%";
+setTimeout(function() {a.style.left = x + "%";a.style.bottom = "0%";a.style.width = "4px";a.style.height = "20px";}, 0);
+setTimeout(function() {a.remove();},1800);
+document.body.appendChild(a);
+}
+function left() {
+var y = Math.random() * 100;
+var x = Math.random() * 100;
+var a = document.createElement("div");
+a.style.width = "2px";
+a.style.height = "2px";
+a.style.background = "lightgreen";
+a.style.position = "absolute";
+a.style.left = "50%";
+a.style.bottom = "50%";
+setTimeout(function() {a.style.left = "0%";a.style.bottom = y/2 + "%";}, 0);
+setTimeout(function() {a.remove();},2000);
+document.body.appendChild(a);
+}
+function right() {
+var y = Math.random() * 100;
+var x = Math.random() * 100;
+var a = document.createElement("div");
+a.style.width = "2px";
+a.style.height = "2px";
+a.style.background = "lightgreen";
+a.style.position = "absolute";
+a.style.left = "50%";
+a.style.bottom = "50%";
+setTimeout(function() {a.style.left = "100%";a.style.bottom = y/2 + "%";}, 0);
+setTimeout(function() {a.remove();},2000);
+document.body.appendChild(a);
+}
+function tree() {
+if (Math.random() < 0.33) {
+} else if (Math.random() > 0.33 && Math.random() < 0.66) {
+var t = document.createElement("div");
+t.style.width = "10px";
+t.style.height = "50px";
+t.style.background = "#964B00";
+t.style.zIndex = "2";
+t.style.position = "absolute";
+t.style.left = "50%";
+t.style.bottom = "50%";
+setTimeout(function() {t.style.left = (Math.random()*200)+100 + "%";t.style.bottom = "0%";t.style.width="10%";t.style.height="250%";}, 0);
+setTimeout(function() {t.remove();},2000);
+document.body.appendChild(t);
+} else {
+var t = document.createElement("div");
+t.style.width = "10px";
+t.style.height = "50px";
+t.style.background = "#964B00";
+t.style.zIndex = "2";
+t.style.position = "absolute";
+t.style.left = "50%";
+t.style.bottom = "50%";
+setTimeout(function() {t.style.left = (Math.random()*-200)-100 + "%";t.style.bottom = "0%";t.style.width="10%";t.style.height="250%";}, 0);
+setTimeout(function() {t.remove();},2000);
+document.body.appendChild(t);
+}
+}
+setInterval(tree, 500);
+
+//game controls
+var character = document.getElementById("character");
+var goat = document.getElementById("goat");
+var loading = document.getElementById("loading");
+var tip = document.getElementById("tip");
+var gameTips = ["Press the spacebar to jump","Press the arrow keys to move right and left","Press the 'Enter' key to do a trick","Loading game, please wait","Training your goat, please wait"];
+
+tip.innerHTML = gameTips[Math.floor(Math.random() * gameTips.length)];
+setTimeout(function(){loading.remove();},2000);
+setTimeout(function(){goat.style.opacity = "1";},3000);
+
+document.body.onkeyup = function(e){  
+    if (e.code == "Space"){
+        jump(); setTimeout(gravity, 300);
+    } else if (e.code == "ArrowLeft"){
+        moveLeft();
+    } else if (e.code == "ArrowRight"){
+        moveRight();
+    } else if (e.code == "Enter"){
+        trick(); setTimeout(goatGravity, 300);
+    }
+}
+function jump() {
+character.style.marginTop = "-330px";
+}
+function gravity() {
+character.style.marginTop = "-265px";
+}
+function moveLeft() {
+character.style.marginLeft = +character.style.marginLeft.split("px")[0] - 20 + "px";
+}
+function moveRight() {
+character.style.marginLeft = +character.style.marginLeft.split("px")[0] + 20 + "px";
+}
+function trick() {
+  if (Math.random() < 0.33) {
+    goat.style.transform = "translateY(-100px) rotate(10deg)";
+  } else if (Math.random() > 0.33 && Math.random()) {
+    goat.style.transform = "translateY(-100px) rotate(0deg)";
+  } else {
+    goat.style.transform = "translateY(-100px) rotate(-10deg)";
+  }
+}
+function goatGravity() {
+goat.style.transform = "translateY(0px)";
+}
+</script>
+</body>
+</html>
