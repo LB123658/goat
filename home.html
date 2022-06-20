@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="Description" content="Experience the true power of being a goat." />
+<link rel='icon' href='https://drive.google.com/thumbnail?id=14fjWZMk4PP7TsBcIogQSFXGZBB70FTgt' type='image/png'/ > 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<title>The Ultimate Goat Simulator</title>
+<style>
+* {
+font-family: 'Zen Dots', cursive;
+color: #282828;
+}
+body {
+background: #64d12e;
+text-align: center;
+}
+
+#language {
+position: absolute;
+top: 10px;
+right: 10px;
+width: 40px;
+background: transparent;
+border: 2px solid black;
+border-radius: 8px;
+padding: 5px;
+cursor: pointer;
+}
+#langauge:hover {
+opacity: 0.7;
+}
+#settings {
+position: absolute;
+z-index: 1;
+top: 52px;
+right: 10px;
+width: 150px;
+height: 105px;
+border-radius: 8px;
+border: none;
+background: white;
+visibility: hidden;
+}
+.s {
+width: 100%;
+height: 35px;
+background: transparent;
+color: black;
+border: none;
+font-size: 17px;
+}
+.s:hover {
+bakcground: lightgrey;
+color: grey;
+cursor: pointer;
+}
+h2 {
+font-size: 40px;
+margin-top: 100px;
+}
+.b {
+font-size: 20px;
+color: black;
+background: transparent;
+border: 2px solid black;
+border-radius: 0px;
+padding: 5px;
+cursor: pointer;
+margin: 20px 5px;
+transition: transform 0.3s, border 0.3s, color 0.3s;
+}
+.b:hover {
+transform: scale(1.05);
+border: 2px solid white;
+color: white;
+}
+</style>
+<body id="body" onload="pickColor()">
+<button id="language" onmouseover="show()" onmouseout="hide()"><span class="material-icons">translate</span></button>
+
+<div id="settings" onmouseover="show()" onmouseout="hide()">
+<button class="s" onclick="location.reload()">English</button>
+<button class="s" onclick="es()">Español</button>
+<button class="s" onclick="pl()">Polski</button>
+</div>
+
+<!-- page -->
+<h2>Ultimate Goat Simulator</h2>
+<p>Play now.</p>
+<br><br>
+<button class="b">Original version</button>
+<button class="b">Goat Simulator 2D</button>
+<button class="b">Goat Simulator 3D</button>
+
+<script>
+function show() {
+document.getElementById("settings").style.visibility = "visible";
+}
+function hide() {
+document.getElementById("settings").style.visibility = "hidden";
+}
+
+document.getElementsByClassName("b")[0].onclick = function(){location.replace("index");};
+document.getElementsByClassName("b")[1].onclick = function(){location.replace("app");};
+document.getElementsByClassName("b")[2].onclick = function(){location.replace("3d");};
+
+function es() {
+document.getElementsByTagName("title")[0].innerHTML = "Simulador de Cabra";
+document.getElementsByTagName("h2")[0].innerHTML = "Simulador de Cabra";
+document.getElementsByTagName("p")[0].innerHTML = "Jugar ahora.";
+document.getElementsByClassName("b")[0].innerHTML = "Versión original";
+document.getElementsByClassName("b")[1].innerHTML = "Simulador de Cabra 2D";
+document.getElementsByClassName("b")[2].innerHTML = "Simulador de Cabra 3D";
+document.getElementsByClassName("b")[0].onclick = function(){location.replace("index?l=es");};
+document.getElementsByClassName("b")[1].onclick = function(){location.replace("app?l=es");};
+document.getElementsByClassName("b")[2].onclick = function(){alert("Esta versión solo está disponible es inglés");location.replace("3d?l=es");};
+}
+function pl() {
+document.getElementsByTagName("title")[0].innerHTML = "Symulator Kozy";
+document.getElementsByTagName("h2")[0].innerHTML = "Symulator Kozy";
+document.getElementsByTagName("p")[0].innerHTML = "Graj teraz.";
+document.getElementsByClassName("b")[0].innerHTML = "Stara wersja";
+document.getElementsByClassName("b")[1].innerHTML = "Symulator Kozy 2D";
+document.getElementsByClassName("b")[2].innerHTML = "Symulator Kozy 3D";
+document.getElementsByClassName("b")[0].onclick = function(){location.replace("index?l=pl");};
+document.getElementsByClassName("b")[1].onclick = function(){location.replace("app?l=pl");};
+document.getElementsByClassName("b")[2].onclick = function(){alert("Ta wersja jest tylko po angielsku");location.replace("3d?l=pl");};
+}
+</script>
+<script src="color.js"></script>
+</body>
+</html>
