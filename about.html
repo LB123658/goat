@@ -117,8 +117,16 @@ border: none;
 background: grey;
 visibility: hidden;
 }
+#closeNotice {
+background: #ffc000;
+colot: black;
+text-decoration: none;
+border-radius: 1px;
+padding: 5px;
+}
 </style>
 <body id="body" onload="pickColor()">
+<p id="notice" style="font-family:14px">This page has been updated. <a href="home">Learn more</a> <a onclick="document.getElementById('notice').remove();" href="#" title="Close" id="closeNotice">Close</a></p>
 <p id="center">
 <img src="https://drive.google.com/thumbnail?id=14fjWZMk4PP7TsBcIogQSFXGZBB70FTgt" id="logo"><br>
 <span id="title">Ultimate Goat Simulator</span><br><br>
@@ -184,7 +192,7 @@ window.location.search = "?l=en";
       } else if (window.location.search == "?l=pl") {
           document.getElementById("title").innerHTML = "Gra kozy";
           document.getElementById("old").title = "Graj stara wersja";
-          document.getElementById("new").title = "Graj nowa wesrja";
+          document.getElementById("new").title = "Graj nowa wersja";
           document.getElementById("old").innerHTML = "Stara wersja";
           document.getElementById("new").innerHTML = "Nowa wersja";
           document.getElementById("a-old").href = "https://lb123658.github.io/goat?l=pl";
